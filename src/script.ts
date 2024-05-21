@@ -1,5 +1,7 @@
-import { getAlerts } from 'data/sophos/sophosSiem'
+import { getSophosAlerts, getSophosEvents } from 'data/sophos/sophosSiem'
 
-const alerts = await getAlerts()
+const alerts = await getSophosAlerts()
+const events = await getSophosEvents()
 
-console.log(alerts.length)
+console.log('alerts: ',alerts.length)
+console.log('events: ',events.length)

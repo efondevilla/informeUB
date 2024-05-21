@@ -1,11 +1,10 @@
-
-export interface sophosSiemAlerts{
+export interface sophosSiemEvents {
   has_more: boolean
+  items: sophosSiemEvent[]
   next_cursor: string
-  items: Array<sophosSiemAlertItem>
 }
 
-export interface sophosSiemAlertItem {
+export interface sophosSiemEvent {
   user_id: string
   created_at: string
   source_info: sophosSiemSourceInfo
@@ -24,7 +23,53 @@ export interface sophosSiemAlertItem {
   origin?: string
   appSha256?: string
   appCerts?: sophosSiemAppCert[]
+  core_remedy_items?: sophosSiemCoreRemedyItem
+}
+
+export interface sophosSiemAlerts {
+  has_more: boolean
+  items: sophosSiemAlert[]
+  next_cursor: string
+}
+
+export interface sophosSiemAlert {
+  javaUUID: string
+  actionable: boolean
+  customer_id: string
+  created_at: string
+  severity: string
+  threat?: string
+  threat_cleanable?: boolean
+  event_service_event_id: string
+  when: string
+  description: string
+  source: string
+  type: string
+  location: string
+  id: string
+  data: sophosSiemAlertsData
+}
+
+export interface sophosSiemAlertsData {
   core_remedy_items?: sophosSiemCoreRemedyItems
+  created_at: number
+  endpoint_id: string
+  endpoint_java_id: string
+  endpoint_platform: string
+  endpoint_type: string
+  event_service_id: sophosSiemEventServiceId
+  inserted_at: number
+  source_app_id?: string
+  source_info: sophosSiemSourceInfo
+  threat_id?: sophosSiemThreatId
+  threat_status?: string
+  user_match_id: sophosSiemUserMatchId
+  user_match_uuid?: sophosSiemUserMatchUuid
+}
+
+export interface sophosSiemEventServiceId {
+  type: number
+  data: string
 }
 
 export interface sophosSiemSourceInfo {
@@ -50,3 +95,17 @@ export interface sophosSiemCoreRemedyItem {
   sophosPid: string
 }
 
+export interface sophosSiemThreatId {
+  timestamp: number
+  date: number
+}
+
+export interface sophosSiemUserMatchId {
+  timestamp: number
+  date: number
+}
+
+export interface sophosSiemUserMatchUuid {
+  type: number
+  data: string
+}
