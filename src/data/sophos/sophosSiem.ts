@@ -1,5 +1,5 @@
 import { env } from 'node:process'
-import { getJWT, getTenants } from './sophos'
+import { getSophosJWT, getSophosTenants } from '.'
 import type { sophosSiemAlerts, sophosSiemAlert, sophosSiemEvents, sophosSiemEvent } from '../../types/sophosSiem'
 
 const { SOPHOS_API_REGION } = env
@@ -7,16 +7,16 @@ const { SOPHOS_API_REGION } = env
 const API_SIEM_URL = `https://api-${SOPHOS_API_REGION}.central.sophos.com/siem/v1/`
 
 export async function getSophosAlerts(): Promise<Array<Array<sophosSiemAlert>>>{
-  const token = await getJWT()
-  const tenants = await getTenants()
+  const token = await getSophosJWT()
+  const tenants = await getSophosTenants()
   const alertsPromises = tenants.map(tenant => getSophosAlert(token, tenant))
   const alerts = await Promise.all(alertsPromises)
   return alerts
 }
 
 export async function getSophosEvents(): Promise<Array<Array<sophosSiemEvent>>>{
-  const token = await getJWT()
-  const tenants = await getTenants()
+  const token = await getSophosJWT()
+  const tenants = await getSophosTenants()
   const alertsPromises = tenants.map(tenant => getSophosEvent(token, tenant))
   const events = await Promise.all(alertsPromises)
   return events

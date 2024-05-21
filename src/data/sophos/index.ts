@@ -8,7 +8,7 @@ let JWTtoken: string | undefined = undefined
 let WAIorganization: string | undefined = undefined
 let OrgTenants: Array<string> = []
 
-export async function getJWT(force: boolean = false) {
+export async function getSophosJWT(force: boolean = false) {
   if (JWTtoken && !force)
     return JWTtoken
   if (!SOPHOS_CLIENT_ID)
@@ -40,11 +40,11 @@ export async function getJWT(force: boolean = false) {
   }
 }
 
-export async function getOrganization(force: boolean = false) {
+export async function getSophosOrganization(force: boolean = false) {
   if (WAIorganization && !force)
     return WAIorganization
   try {
-    const token = await getJWT()
+    const token = await getSophosJWT()
     const myHeaders = new Headers({
       "Authorization": `Bearer ${token}`,
       "Content-Type": "application/json"
@@ -64,12 +64,12 @@ export async function getOrganization(force: boolean = false) {
   }
 }
 
-export async function getTenants() {
+export async function getSophosTenants() {
   if (OrgTenants.length > 0)
     return OrgTenants
   try {
-    const token = await getJWT()
-    const organization = await getOrganization()
+    const token = await getSophosJWT()
+    const organization = await getSophosOrganization()
     const myHeaders = new Headers({
       "Authorization": `Bearer ${token}`,
       "X-Organization-ID": organization,
