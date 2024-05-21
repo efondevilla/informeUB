@@ -1,4 +1,5 @@
 import { getMicrosoftJWT } from 'data/microsoft'
+import { getMicrosoftReportSummaryData } from 'data/microsoft/microsoftDefender'
 // import { getSophosAlerts, getSophosEvents } from 'data/sophos/sophosSiem'
 
 // const alerts = await getSophosAlerts()
@@ -8,3 +9,5 @@ import { getMicrosoftJWT } from 'data/microsoft'
 
 const token = await getMicrosoftJWT()
 console.log(token)
+getMicrosoftReportSummaryData("MailFlowStatusReport","MailFlowStatusSummary")
+
