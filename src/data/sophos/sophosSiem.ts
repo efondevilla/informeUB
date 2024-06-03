@@ -28,7 +28,7 @@ async function getSophosAlert(token: string, tenant_id: string): Promise<Array<s
     "X-Tenant-ID": tenant_id,
     "Content-Type": "application/json"
   });
-  const response = await fetch(`${API_SIEM_URL}events`, {
+  const response = await fetch(`${API_SIEM_URL}alerts`, {
     method: "GET",
     headers: myHeaders,
     redirect: "follow"
