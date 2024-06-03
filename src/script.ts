@@ -2,12 +2,12 @@ import { getMicrosoftReportsQuery, getSophosAlerts, getSophosEvents, getPaloAlto
 import { saveFile } from 'storage'
 
 const sophosAlerts = await getSophosAlerts()
-console.log(`🚀 ~ sophosAlerts:`, sophosAlerts)
-saveFile("sophos/alerts.json", JSON.stringify(sophosAlerts))
+// console.log(`🚀 ~ sophosAlerts:`, sophosAlerts)
+saveFile("sophos/alerts.csv", sophosAlerts.flat())
 
-// const sophosEvents = await getSophosEvents()
+const sophosEvents = await getSophosEvents()
 // console.log(`🚀 ~ sophosEvents:`, sophosEvents)
-// saveFile("sophos/events.json", JSON.stringify(sophosEvents))
+saveFile("sophos/events.csv", sophosEvents.flat())
 
 // const microsoftReport = getMicrosoftReportsQuery("MailFlowStatusReport")
 // console.log(`🚀 ~ microsoftReport:`, microsoftReport)
