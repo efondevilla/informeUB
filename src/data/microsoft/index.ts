@@ -29,6 +29,8 @@ export async function getMicrosoftJWT(force: boolean = false) {
     })
     const data = await response.text()
     const jsonData = JSON.parse(data)
+    // Documentation:
+    // https://learn.microsoft.com/en-us/defender-xdr/api-partner-access
     JWTtoken = jsonData.access_token
     return jsonData.access_token
   } catch (error){
