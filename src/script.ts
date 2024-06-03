@@ -1,5 +1,6 @@
 import { getMicrosoftJWT } from 'data/microsoft'
-import { getMicrosoftReportsQuery, getMicrosoftReportSummaryData } from 'data/microsoft/microsoftDefender'
+import { getMicrosoftReportsQuery } from 'data/microsoft/microsoftDefender'
+import { getPaloAltoAlerts } from 'data/paloAlto'
 import { getSophosAlerts, getSophosEvents } from 'data/sophos/sophosSiem'
 
 // const alerts = await getSophosAlerts()
@@ -11,5 +12,6 @@ import { getSophosAlerts, getSophosEvents } from 'data/sophos/sophosSiem'
 // console.log(token)
 // getMicrosoftReportsQuery("DeviceEvents | where ActionType contains 'Anti' | limit 20")
 
-getMicrosoftReportsQuery("MailFlowStatusReport")
+// getMicrosoftReportsQuery("MailFlowStatusReport")
 
+getPaloAltoAlerts("<show><user><group><list></list></group></user></show>")
