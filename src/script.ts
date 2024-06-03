@@ -1,17 +1,18 @@
-import { getMicrosoftJWT } from 'data/microsoft'
-import { getMicrosoftReportsQuery } from 'data/microsoft/microsoftDefender'
-import { getPaloAltoAlerts } from 'data/paloAlto'
-import { getSophosAlerts, getSophosEvents } from 'data/sophos/sophosSiem'
+import { getMicrosoftReportsQuery, getSophosAlerts, getSophosEvents, getPaloAltoAlerts } from 'data'
+import { saveFile } from 'storage'
 
-// const alerts = await getSophosAlerts()
-// const events = await getSophosEvents()
-// console.log('alerts: ',alerts)
-// console.log('events: ',events)
+const sophosAlerts = await getSophosAlerts()
+console.log(`🚀 ~ sophosAlerts:`, sophosAlerts)
+saveFile("sophos/alerts.json", JSON.stringify(sophosAlerts))
 
-// const token = await getMicrosoftJWT()
-// console.log(token)
-// getMicrosoftReportsQuery("DeviceEvents | where ActionType contains 'Anti' | limit 20")
+// const sophosEvents = await getSophosEvents()
+// console.log(`🚀 ~ sophosEvents:`, sophosEvents)
+// saveFile("sophos/events.json", JSON.stringify(sophosEvents))
 
-// getMicrosoftReportsQuery("MailFlowStatusReport")
+// const microsoftReport = getMicrosoftReportsQuery("MailFlowStatusReport")
+// console.log(`🚀 ~ microsoftReport:`, microsoftReport)
+// saveFile("microsoft/report.json", JSON.stringify(microsoftReport))
 
-getPaloAltoAlerts("<show><user><group><list></list></group></user></show>")
+// const paloAltoAlerts = getPaloAltoAlerts("<show><user><group><list></list></group></user></show>")
+// console.log(`🚀 ~ paloAltoAlerts:`, paloAltoAlerts)
+// saveFile("sophos/alerts.json", JSON.stringify(paloAltoAlerts))
