@@ -13,6 +13,7 @@
   "devDependencies": {
     "@types/fs-extra": "^11.0.4",
     "@types/node": "^20.14.0",
+    "@types/papaparse": "^5.3.14",
     "dotenv": "^16.4.5",
     "eslint": "^9.4.0",
     "tsup": "^8.1.0",
@@ -20,6 +21,7 @@
     "typescript": "^5.4.5"
   },
   "dependencies": {
-    "fs-extra": "^11.2.0"
+    "fs-extra": "^11.2.0",
+    "papaparse": "^5.4.1"
   }
 }
