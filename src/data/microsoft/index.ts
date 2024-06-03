@@ -1,4 +1,5 @@
 import { env } from 'node:process'
+export * from './microsoftDefender'
 
 const { MICROSOFT_CLIENT_ID, MICROSOFT_TENANT_ID, MICROSOFT_SECRET_VALUE_ID } = env
 let JWTtoken: string | undefined = undefined

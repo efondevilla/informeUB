@@ -1,5 +1,6 @@
 import { env } from 'node:process'
 import type { sophosAccessToken, sophosOrganizationInfo,  sophosOrganizationTenants} from '../../types/sophosGeneric'
+export * from './sophosSiem'
 
 const { SOPHOS_CLIENT_ID, SOPHOS_CLIENT_SECRET } = env
 
