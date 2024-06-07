@@ -13,6 +13,6 @@ saveFile("sophos/events.csv", sophosEvents.flat())
 // console.log(`🚀 ~ microsoftReport:`, microsoftReport)
 // saveFile("microsoft/report.json", JSON.stringify(microsoftReport))
 
-// const paloAltoAlerts = getPaloAltoAlerts("<show><user><group><list></list></group></user></show>")
-// console.log(`🚀 ~ paloAltoAlerts:`, paloAltoAlerts)
+const paloAltoAlerts = getPaloAltoAlerts("<show><user><group><list></list></group></user></show>")
+console.log(`🚀 ~ paloAltoAlerts:`, paloAltoAlerts)
 // saveFile("sophos/alerts.json", JSON.stringify(paloAltoAlerts))
